@@ -1,20 +1,41 @@
 # Buketstore.demo
 
-Romantic Luxury florist storefront starter.
+Romantic Luxury florist storefront demo.
 
-## Arah proyek
-- White-label florist store: nama brand dan identitas akan dikelola dari dashboard admin.
-- Alur pelanggan: katalog → detail produk → keranjang → checkout → WhatsApp.
-- Halaman testimoni khusus dan moderasi ulasan oleh admin.
-- Backend rencana: Supabase Auth, Postgres + Row Level Security, dan Supabase Storage.
-- Hosting awal: GitHub Pages.
+## Customer pages
+- Homepage, shop/catalog, product detail, cart, checkout, about, contact, testimonials.
+- Customer journey: catalog → product detail → cart → checkout → WhatsApp order confirmation.
+- Checkout stores a local demo order before opening WhatsApp with the order summary.
 
-## Fondasi saat ini
-- Homepage responsif dengan tema Romantic Luxury.
-- Palet ivory, blush pink, burgundy, dan deep plum.
-- Placeholder brand membaca localStorage key `buketstore_brand_settings`.
-- Badge keranjang membaca localStorage key `buketstore_cart`.
-- Kartu produk dan testimoni di homepage masih berupa konten demo.
+## Admin demo
+Open `admin/index.html` to manage:
+- Products, prices, categories, stock, image URLs and featured status.
+- Brand name, tagline, WhatsApp number, email, address and opening hours.
+- Orders created in this browser and their demo statuses.
+- Testimonials and publication moderation.
 
-## Status
-Ini baru fondasi frontend homepage. Supabase, autentikasi admin, CRUD katalog, data produk asli, keranjang lengkap, penyimpanan pesanan, dan checkout WhatsApp belum diimplementasikan. Jangan gunakan konten demo sebagai data toko sungguhan.
+## Design
+- Romantic Luxury: ivory, blush pink, burgundy and deep plum.
+- Playfair Display + DM Sans typography.
+- Responsive storefront and admin layout.
+
+## Current data mode — important
+This repository currently uses browser `localStorage` for demo data:
+- `buketstore_products`
+- `buketstore_cart`
+- `buketstore_brand_settings`
+- `buketstore_orders`
+- `buketstore_testimonials`
+
+This means data is local to the browser/device and is not synchronized between customers or admin devices. The demo admin is not protected by production authentication. Do not use this version to process real customer data or production orders.
+
+## Planned production integration
+- Dedicated Supabase project for Auth, Postgres, and Storage.
+- Row Level Security for all exposed tables.
+- Secure admin authorization; never expose service-role keys in frontend code.
+- Cloud-backed catalog, settings, testimonials, and orders.
+- Validate stock and order totals on the trusted backend before accepting an order.
+- WhatsApp remains the customer communication and payment-coordination channel; payment is handled manually outside the website.
+
+## Hosting
+GitHub Pages can host the static demo. A production launch requires the Supabase integration and security work above.
