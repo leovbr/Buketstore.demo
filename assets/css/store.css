@@ -76,3 +76,10 @@ select option {
 .admin-tabs button{text-align:left;width:100%;padding:12px 14px}
 .admin-tabs button.active{background:var(--burgundy);color:#fff}
 @media(max-width:560px){.admin-tabs{width:100%;max-width:100%}.admin-menu-toggle{width:100%;justify-content:flex-start}}
+
+/* Admin bouquet image picker */
+.admin-image-library{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0 16px}
+.admin-image-choice{display:flex;flex-direction:column;gap:7px;min-width:0;padding:7px;border:1px solid var(--line);background:#fff;color:var(--burgundy);font:11px var(--sans);cursor:pointer;text-align:center}
+.admin-image-choice:hover,.admin-image-choice:focus{border-color:var(--burgundy);outline:2px solid rgba(112,45,67,.12)}
+.admin-image-choice img{display:block;width:100%;height:145px;object-fit:cover;background:var(--ivory)}
+@media(max-width:560px){.admin-image-library{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-image-choice img{height:135px}}
