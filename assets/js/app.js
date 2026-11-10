@@ -138,7 +138,10 @@
     searchButton.setAttribute("aria-label", "Cari produk");
     searchButton.setAttribute("aria-expanded", "false");
     searchButton.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>';
-    header.insertBefore(searchButton, menuButton);
+    const actions = document.createElement("div");
+    actions.className = "mf-nav-actions";
+    header.insertBefore(actions, menuButton);
+    actions.append(searchButton, menuButton);
 
     const language = document.createElement("div");
     language.className = "mf-language";
