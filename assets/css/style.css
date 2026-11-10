@@ -2,15 +2,32 @@
 /* Floating cart deployment refresh */
 
  
-/* Maison Fleur — premium pink palette and soft falling blossoms */
-body{background:linear-gradient(180deg,#fff8fa 0%,#fff3f7 48%,#fff9fb 100%);background-attachment:fixed}
+/* Maison Fleur — premium pink palette and natural falling blossoms */
+body{background:linear-gradient(180deg,#fff8fa 0%,#fff3f7 48%,#fff9fb 100%);background-attachment:fixed;isolation:isolate}
 .announcement{background:#a33f68}
-.site-header{background:rgba(255,248,250,.96)}
+.site-header{background:rgba(255,248,250,.97)}
 .site-footer{background:#472638}
 .floating-cart{background:#a33f68;box-shadow:0 8px 24px rgba(163,63,104,.28)}
 .product-label{background:#fff1f6;color:#9c365f;border:1px solid #f1c7d7}
-body::before,body::after{content:"";position:fixed;inset:-110vh 0 0;height:320vh;pointer-events:none;z-index:1;background-repeat:repeat;will-change:background-position}
-body::before{opacity:.24;background-size:190px 230px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='190' height='230' viewBox='0 0 190 230'%3E%3Cg fill='%23e88eae' opacity='.8'%3E%3Cpath d='M34 25c-13-13-5-24 3-20 9 4 8 15-3 20z'/%3E%3Cpath d='M34 25c13-13 5-24-3-20-9 4-8 15 3 20z' transform='rotate(90 34 25)'/%3E%3Cpath d='M34 25c-13-13-5-24 3-20 9 4 8 15-3 20z' transform='rotate(180 34 25)'/%3E%3Cpath d='M34 25c13-13 5-24-3-20-9 4-8 15 3 20z' transform='rotate(270 34 25)'/%3E%3Ccircle cx='34' cy='25' r='3' fill='%23fff0f5'/%3C/g%3E%3Cg fill='%23f1abc1' opacity='.72'%3E%3Cpath d='M135 112c-12-12-5-22 3-18 8 3 7 14-3 18z'/%3E%3Cpath d='M135 112c12-12 5-22-3-18-8 3-7 14 3 18z' transform='rotate(90 135 112)'/%3E%3Cpath d='M135 112c-12-12-5-22 3-18 8 3 7 14-3 18z' transform='rotate(180 135 112)'/%3E%3Cpath d='M135 112c12-12 5-22-3-18-8 3-7 14 3 18z' transform='rotate(270 135 112)'/%3E%3Ccircle cx='135' cy='112' r='2.5' fill='%23fff4f7'/%3E%3C/g%3E%3C/svg%3E");animation:maison-petal-fall 30s linear infinite}
-body::after{opacity:.16;background-size:270px 310px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='270' height='310' viewBox='0 0 270 310'%3E%3Cg fill='%23d9789d'%3E%3Cellipse cx='72' cy='65' rx='5' ry='11' transform='rotate(-35 72 65)'/%3E%3Cellipse cx='170' cy='188' rx='4' ry='9' transform='rotate(38 170 188)'/%3E%3Cellipse cx='225' cy='42' rx='4' ry='9' transform='rotate(65 225 42)'/%3E%3Cellipse cx='35' cy='260' rx='5' ry='10' transform='rotate(-20 35 260)'/%3E%3C/g%3E%3C/svg%3E");animation:maison-petal-fall 42s linear infinite reverse}
-@keyframes maison-petal-fall{from{background-position:0 -230px}to{background-position:90px 690px}}
+
+/* Falling petals stay BEHIND page content; they never wash out photos or text. */
+body::before,body::after{content:"";position:fixed;top:-105vh;left:0;width:100%;height:310vh;pointer-events:none;z-index:0;background-repeat:repeat;will-change:transform}
+body::before{
+ opacity:.48;
+ background-size:230px 270px;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='230' height='270' viewBox='0 0 230 270'%3E%3Cg fill='%23e88eae'%3E%3Cellipse cx='38' cy='35' rx='5' ry='11' transform='rotate(-38 38 35)' opacity='.8'/%3E%3Cellipse cx='148' cy='118' rx='4' ry='10' transform='rotate(32 148 118)' opacity='.72'/%3E%3Cellipse cx='82' cy='220' rx='5' ry='12' transform='rotate(58 82 220)' opacity='.65'/%3E%3C/g%3E%3C/svg%3E");
+ animation:maison-petal-fall 24s linear infinite;
+}
+body::after{
+ opacity:.28;
+ background-size:310px 350px;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='310' height='350' viewBox='0 0 310 350'%3E%3Cg fill='%23d9789d'%3E%3Cpath d='M220 54c-12-13-5-23 3-19 9 4 8 14-3 19zm0 0c13-12 5-22-3-18-8 4-7 14 3 18z' opacity='.75'/%3E%3Cpath d='M65 175c-10-11-4-19 3-16 7 3 6 12-3 16zm0 0c11-10 4-18-3-15-7 3-6 12 3 15z' opacity='.65'/%3E%3Cellipse cx='265' cy='275' rx='4' ry='10' transform='rotate(-48 265 275)' opacity='.7'/%3E%3C/g%3E%3C/svg%3E");
+ animation:maison-petal-fall 36s linear infinite;
+}
+@keyframes maison-petal-fall{
+ from{transform:translate3d(0,0,0) rotate(0deg)}
+ to{transform:translate3d(3vw,105vh,0) rotate(8deg)}
+}
+/* Keep all actual page layers above the decorative petal layer. */
+body>*{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
