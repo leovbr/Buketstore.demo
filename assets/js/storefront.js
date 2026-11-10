@@ -5,16 +5,6 @@ const read=(k,f)=>{try{const x=JSON.parse(localStorage.getItem(k));return x??f}c
 const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const money=n=>"Rp "+Number(n||0).toLocaleString("id-ID");
 let products=read(KEY.products,seed),settings=read(KEY.settings,{brandName:"Maison Fleur",tagline:"FLOWERS & LITTLE MOMENTS",whatsapp:"6285823538473",email:"hello@yourflorist.com",address:"Alamat toko dapat diatur melalui admin.",hours:"Setiap hari · 09.00–20.00"});
-const themes={
- "signature-blush":{ivory:"#fce8ee",paper:"#fff8fa",blush:"#f2c3d2",rose:"#df91ad",burgundy:"#a33f68",plum:"#472638",muted:"#92727f",line:"#f0d5df",quote:"#ead6d8"},
- "rose-garden":{ivory:"#f8e5ed",paper:"#fff8fb",blush:"#efbfd0",rose:"#d987a8",burgundy:"#9d416b",plum:"#49283b",muted:"#916f80",line:"#efd3df",quote:"#efd8e2"},
- "ivory-romance":{ivory:"#f4e9df",paper:"#fffaf5",blush:"#e8cfc3",rose:"#c98e83",burgundy:"#92505b",plum:"#49313a",muted:"#89777a",line:"#e8d8d0",quote:"#eadbd3"},
- "burgundy-bloom":{ivory:"#f2e1e7",paper:"#fff7f9",blush:"#dca9bb",rose:"#bd6f8b",burgundy:"#7e294e",plum:"#38212d",muted:"#8b6b79",line:"#e7cbd6",quote:"#e8ccd7"}
-};
-function applyTheme(id){const t=themes[id]||themes["signature-blush"],root=document.documentElement;Object.entries({ivory:t.ivory,paper:t.paper,blush:t.blush,rose:t.rose,burgundy:t.burgundy,plum:t.plum,muted:t.muted,line:t.line}).forEach(([k,v])=>root.style.setProperty("--"+k,v));let style=document.querySelector("#maison-theme-overrides");if(!style){style=document.createElement("style");style.id="maison-theme-overrides";document.head.appendChild(style)}style.textContent=".quote-section{background:"+t.quote+"!important}.button-dark{background:"+t.burgundy+"!important}.product-label{color:"+t.burgundy+"!important;border-color:"+t.line+"!important}";}
-settings.theme=settings.theme||"signature-blush";
-applyTheme(settings.theme);
-
 if(!Array.isArray(products)||products.length===0){products=seed;write(KEY.products,products)}
 settings.whatsapp="6285823538473";
 const savedReviews=localStorage.getItem(KEY.reviews);let cart=read(KEY.cart,[]),reviews=savedReviews===null?null:read(KEY.reviews,[]);
