@@ -5,7 +5,7 @@ const read=(k,f)=>{try{const x=JSON.parse(localStorage.getItem(k));return x??f}c
 const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const money=n=>"Rp "+Number(n||0).toLocaleString("id-ID");
 let products=read(KEY.products,seed),settings=read(KEY.settings,{brandName:"Maison Fleur",tagline:"FLOWERS & LITTLE MOMENTS",whatsapp:"6285823538473",email:"hello@yourflorist.com",address:"Alamat toko dapat diatur melalui admin.",hours:"Setiap hari · 09.00–20.00"});
-settings.whatsapp=String(settings.whatsapp||"").replace(/\D/g,"")||"6285823538473";
+settings.whatsapp="6285823538473";
 let cart=read(KEY.cart,[]),reviews=read(KEY.reviews,[]);
 function migrateProductImages(){const map={"rose-blush":"assets/buket1.webp","velvet-rose":"assets/buket2.webp","sunday-darling":"assets/buket3.webp","classic-white":"assets/buket4.webp","soft-dream":"assets/buket5.webp","garden-love":"assets/buket6.webp"};let changed=false;products=products.map(p=>{if(map[p.id]&&String(p.image||"").includes("images.unsplash.com")){changed=true;return {...p,image:map[p.id]}}return p});if(changed)write(KEY.products,products)}
 migrateProductImages();
