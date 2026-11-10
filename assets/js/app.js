@@ -1,8 +1,8 @@
 (() => {
-  const defaults = { brandName: "Maison Fleur", tagline: "FLOWERS & LITTLE MOMENTS", whatsapp: "", email: "hello@yourflorist.com" };
+  const defaults = { brandName: "Maison Fleur", tagline: "FLOWERS & LITTLE MOMENTS", whatsapp: "6285823538473", email: "hello@yourflorist.com" };
   let settings = { ...defaults };
   try { settings = { ...defaults, ...JSON.parse(localStorage.getItem("buketstore_brand_settings") || "{}") }; }
-  catch (error) { console.warn("Brand settings could not be loaded.", error); }
+  catch (error) { console.warn("Brand settings could not be loaded.", error); }\n  settings.whatsapp = String(settings.whatsapp || "").replace(/\\D/g, "") || "6285823538473";
   document.querySelectorAll("[data-brand-name]").forEach(node => node.textContent = settings.brandName);
   document.querySelectorAll("[data-brand-tagline]").forEach(node => node.textContent = settings.tagline);
   document.querySelectorAll("[data-store-email]").forEach(node => node.textContent = settings.email);
