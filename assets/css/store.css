@@ -62,3 +62,17 @@ select option {
   padding-top: 8px;
   padding-bottom: 8px;
 }
+
+/* Hamburger navigation for the admin dashboard */
+.admin-nav-wrap{position:relative;margin-bottom:22px}
+.admin-menu-toggle{display:flex;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;color:var(--burgundy);padding:12px 16px;font:600 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
+.admin-menu-icon{display:grid;gap:4px;width:17px}
+.admin-menu-icon i{display:block;height:1.5px;width:17px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:first-child{transform:translateY(5.5px) rotate(45deg)}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:nth-child(2){opacity:0}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+.admin-tabs{display:none;position:absolute;z-index:20;top:calc(100% + 8px);left:0;min-width:240px;max-width:min(100%,340px);padding:9px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 35px rgba(60,25,38,.12);flex-direction:column;gap:5px;margin:0}
+.admin-tabs.is-open{display:flex}
+.admin-tabs button{text-align:left;width:100%;padding:12px 14px}
+.admin-tabs button.active{background:var(--burgundy);color:#fff}
+@media(max-width:560px){.admin-tabs{width:100%;max-width:100%}.admin-menu-toggle{width:100%;justify-content:flex-start}}
