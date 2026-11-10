@@ -31,3 +31,42 @@ body::after{
 /* Keep all actual page layers above the decorative petal layer. */
 body>*{position:relative;z-index:1}
 @media(prefers-reduced-motion:reduce){body::before,body::after{animation:none}}
+
+
+/* Maison Fleur smart navbar: visible search beside the hamburger */
+.mf-search-toggle{display:grid;place-items:center;width:42px;height:42px;margin-left:auto;margin-right:10px;padding:0;border:0;background:transparent;color:var(--burgundy);cursor:pointer;transition:background .2s ease,transform .2s ease}
+.mf-search-toggle:hover{background:#f8e5ed;border-radius:50%;transform:scale(1.04)}
+.mf-search-toggle svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mf-language{display:flex;flex-direction:column;gap:9px;padding-top:16px;margin-top:2px;border-top:1px solid var(--line);width:100%}
+.mf-language-label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.mf-language-options{display:flex;gap:8px}
+.mf-language-options button{padding:9px 13px;border:1px solid var(--line);background:#fff;color:var(--plum);font:11px var(--sans);cursor:pointer}
+.mf-language-options button.is-active{border-color:var(--burgundy);background:var(--burgundy);color:#fff}
+.mf-search-overlay{position:fixed;inset:0;z-index:120;display:grid;place-items:start center;padding:12vh 18px 30px;background:rgba(48,25,37,.42);backdrop-filter:blur(5px)}
+.mf-search-overlay[hidden]{display:none}
+.mf-search-panel{width:min(620px,100%);max-height:76vh;overflow:auto;padding:28px;background:var(--paper);border:1px solid var(--line);box-shadow:0 25px 70px rgba(71,38,56,.24)}
+.mf-search-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px}
+.mf-search-heading .eyebrow{margin:0 0 8px}
+.mf-search-heading h2{margin:0;font:500 clamp(24px,5vw,34px)/1.15 var(--serif);color:var(--plum)}
+.mf-search-close{width:34px;height:34px;border:1px solid var(--line);background:#fff;color:var(--burgundy);font:26px/1 var(--sans);cursor:pointer}
+.mf-search-box{display:flex;align-items:center;gap:12px;padding:0 14px;border:1px solid var(--blush);background:#fff}
+.mf-search-box svg{width:20px;height:20px;flex:0 0 auto;fill:none;stroke:var(--burgundy);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mf-search-input{width:100%;min-height:52px;border:0;outline:0;background:transparent;color:var(--plum);font:13px var(--sans)}
+.mf-search-results{display:grid;gap:7px;margin-top:16px}
+.mf-search-hint{margin:0;padding:18px;background:#fff4f8;color:var(--muted);font-size:12px;line-height:1.7}
+.mf-search-result{display:flex;align-items:center;gap:13px;padding:9px;border:1px solid var(--line);background:#fff;transition:border-color .2s ease,transform .2s ease}
+.mf-search-result:hover{border-color:var(--rose);transform:translateY(-1px)}
+.mf-search-thumb{width:54px;height:54px;flex:0 0 auto;background-color:var(--ivory);background-size:cover;background-position:center}
+.mf-search-result>span:nth-child(2){display:grid;gap:5px;min-width:0}
+.mf-search-result strong{font:500 16px var(--serif);color:var(--plum)}
+.mf-search-result small{font-size:10px;color:var(--muted)}
+.mf-search-result>b{margin-left:auto;color:var(--burgundy)}
+@media(max-width:560px){
+ .site-header{gap:4px}
+ .mf-search-toggle{order:2;margin:0 4px 0 auto;width:40px;height:40px;flex:0 0 40px}
+ .menu-toggle{order:3;margin-left:0;flex:0 0 38px}
+ .main-nav{top:71px}
+ .mf-language{padding-top:14px}
+ .mf-search-overlay{padding:9vh 12px 20px}
+ .mf-search-panel{padding:20px 16px}
+}
