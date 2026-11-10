@@ -1,18 +1,20 @@
 (() => {
 const KEY={products:"buketstore_products",cart:"buketstore_cart",settings:"buketstore_brand_settings",reviews:"buketstore_testimonials",orders:"buketstore_orders",homeBouquets:"buketstore_homepage_bouquets"};
 const seed=[
-{id:"rose-blush",name:"Blush in Bloom",category:"Romantic",price:285000,description:"Rangkaian mawar pink lembut dengan wrapping premium untuk menyampaikan rasa sayang.",image:"https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&fit=crop&w=900&q=85",stock:8,featured:true},
-{id:"velvet-rose",name:"Velvet Romance",category:"Romantic",price:350000,description:"Mawar merah pilihan dalam balutan burgundy yang elegan.",image:"https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&fit=crop&w=900&q=85",stock:5,featured:true},
-{id:"sunday-darling",name:"Sunday Darling",category:"Birthday",price:225000,description:"Buket ceria dengan bunga pilihan bernuansa pastel.",image:"https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=900&q=85",stock:10,featured:true},
-{id:"classic-white",name:"Pure Elegance",category:"Graduation",price:310000,description:"Perpaduan bunga putih yang anggun untuk hari kelulusan.",image:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=900&q=85",stock:4,featured:false},
-{id:"soft-dream",name:"Soft Dream",category:"Birthday",price:195000,description:"Warna lembut dan manis untuk kejutan sederhana.",image:"https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=900&q=85",stock:7,featured:false},
-{id:"garden-love",name:"Garden Love",category:"Anniversary",price:425000,description:"Rangkaian premium dengan nuansa taman romantis.",image:"https://images.unsplash.com/photo-1487530811176-3780de880c2d?auto=format&fit=crop&w=900&q=85",stock:3,featured:false}
+{id:"rose-blush",name:"Blush in Bloom",category:"Romantic",price:285000,description:"Rangkaian mawar pink lembut dengan wrapping premium untuk menyampaikan rasa sayang.",image:"assets/buket1.webp",stock:8,featured:true},
+{id:"velvet-rose",name:"Velvet Romance",category:"Romantic",price:350000,description:"Mawar merah pilihan dalam balutan burgundy yang elegan.",image:"assets/buket2.webp",stock:5,featured:true},
+{id:"sunday-darling",name:"Sunday Darling",category:"Birthday",price:225000,description:"Buket ceria dengan bunga pilihan bernuansa pastel.",image:"assets/buket3.webp",stock:10,featured:true},
+{id:"classic-white",name:"Pure Elegance",category:"Graduation",price:310000,description:"Perpaduan bunga putih yang anggun untuk hari kelulusan.",image:"assets/buket4.webp",stock:4,featured:false},
+{id:"soft-dream",name:"Soft Dream",category:"Birthday",price:195000,description:"Warna lembut dan manis untuk kejutan sederhana.",image:"assets/buket5.webp",stock:7,featured:false},
+{id:"garden-love",name:"Garden Love",category:"Anniversary",price:425000,description:"Rangkaian premium dengan nuansa taman romantis.",image:"assets/buket6.webp",stock:3,featured:false}
 ];
 const read=(k,f)=>{try{const x=JSON.parse(localStorage.getItem(k));return x??f}catch{return f}};
 const write=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
 const money=n=>"Rp "+Number(n||0).toLocaleString("id-ID");
 let products=read(KEY.products,seed),settings=read(KEY.settings,{brandName:"Maison Fleur",tagline:"FLOWERS & LITTLE MOMENTS",whatsapp:"",email:"hello@yourflorist.com",address:"Alamat toko dapat diatur melalui admin.",hours:"Setiap hari · 09.00–20.00"});
 let cart=read(KEY.cart,[]),reviews=read(KEY.reviews,[]);
+function migrateProductImages(){const map={"rose-blush":"assets/buket1.webp","velvet-rose":"assets/buket2.webp","sunday-darling":"assets/buket3.webp","classic-white":"assets/buket4.webp","soft-dream":"assets/buket5.webp","garden-love":"assets/buket6.webp"};let changed=false;products=products.map(p=>{if(map[p.id]&&String(p.image||"").includes("images.unsplash.com")){changed=true;return {...p,image:map[p.id]}}return p});if(changed)write(KEY.products,products)}
+migrateProductImages();
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const image=(p)=>esc(p.image||"");
 function updateHeader(){document.querySelectorAll("[data-brand-name]").forEach(n=>n.textContent=settings.brandName);document.querySelectorAll("[data-brand-tagline]").forEach(n=>n.textContent=settings.tagline);document.querySelectorAll("[data-store-email]").forEach(n=>n.textContent=settings.email);document.querySelectorAll("[data-store-address]").forEach(n=>n.textContent=settings.address);document.querySelectorAll("[data-store-hours]").forEach(n=>n.textContent=settings.hours);document.querySelectorAll("[data-year]").forEach(n=>n.textContent=new Date().getFullYear());document.querySelectorAll("[data-cart-count]").forEach(n=>n.textContent=cart.reduce((s,i)=>s+i.quantity,0));document.querySelectorAll("[data-whatsapp-link],[data-contact-whatsapp]").forEach(n=>{const num=String(settings.whatsapp||"").replace(/\D/g,"");n.href=num?"https://wa.me/"+num:"contact.html";if(num){n.target="_blank";n.rel="noopener"}})}
