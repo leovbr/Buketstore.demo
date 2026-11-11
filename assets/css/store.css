@@ -253,3 +253,33 @@ select option {
 .occasion-admin-save{margin-top:8px}
 @media(max-width:800px){.occasion-admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.occasion-rail{grid-auto-columns:clamp(165px,32vw,220px)}}
 @media(max-width:560px){.occasion-rails{gap:15px}.occasion-rail{grid-auto-columns:166px;gap:12px;padding-bottom:11px}.occasion-card strong{font-size:18px}.occasion-admin-grid{grid-template-columns:1fr}.occasion-admin-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}.occasion-admin-head,.occasion-admin-preview,.occasion-admin-card label,.occasion-upload{grid-column:1/-1}.occasion-admin-preview{width:min(100%,260px);justify-self:center}}
+
+/* Maison Fleur occasion rails: continuous free horizontal scrolling.
+   Keep one full card and a preview of the next card visible on mobile. */
+.occasion-rails{display:grid;gap:22px;width:100%;min-width:0}
+.occasion-rail{
+  display:grid;
+  grid-auto-flow:column;
+  grid-auto-columns:clamp(205px,22vw,250px);
+  gap:16px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  padding:2px 2px 12px;
+  scroll-snap-type:none;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y;
+}
+.occasion-rail::-webkit-scrollbar{display:none}
+.occasion-card{scroll-snap-align:none;min-width:0}
+.occasion-card img{aspect-ratio:1/1;object-fit:cover}
+@media(max-width:800px){
+  .occasion-rail{grid-auto-columns:72%;gap:12px}
+}
+@media(max-width:560px){
+  .occasion-rails{gap:16px}
+  .occasion-rail{grid-auto-columns:72%;gap:12px;padding-bottom:10px}
+  .occasion-card strong{font-size:18px}
+}
