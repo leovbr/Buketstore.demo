@@ -695,3 +695,38 @@ select option {
 @keyframes maisonRoseSweep{0%,20%,100%{opacity:0;transform:translateX(-55px) skewX(-20deg)}22%{opacity:1}38%{opacity:0;transform:translateX(min(68vw,460px)) skewX(-20deg)}}
 @keyframes maisonPetalDrift{0%,46%,68%,100%{opacity:0;transform:translate(-8px,5px) rotate(-35deg)}49%{opacity:1}66%{opacity:0;transform:translate(min(62vw,420px),-9px) rotate(155deg)}}
 @media(prefers-reduced-motion:reduce){.admin-navbar-identity .admin-navbar-brand,.admin-navbar-identity .admin-navbar-brand::before,.admin-navbar-identity .admin-navbar-brand::after,.site-header .brand > span > strong[data-brand-name],.site-header .brand > span > strong[data-brand-name]::before,.site-header .brand > span > strong[data-brand-name]::after,.site-footer .brand > span > strong[data-brand-name],.site-footer .brand > span > strong[data-brand-name]::before,.site-footer .brand > span > strong[data-brand-name]::after{animation:none!important;clip-path:none!important;will-change:auto}.admin-navbar-identity .admin-navbar-brand::before,.admin-navbar-identity .admin-navbar-brand::after,.site-header .brand > span > strong[data-brand-name]::before,.site-header .brand > span > strong[data-brand-name]::after,.site-footer .brand > span > strong[data-brand-name]::before,.site-footer .brand > span > strong[data-brand-name]::after{display:none!important}}
+
+
+/* SPECIAL bouquet cards: a soft rose-gold light sweep across the product photo */
+.product-card.is-special .product-image{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.product-card.is-special .product-image::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  top:-28%;
+  bottom:-28%;
+  left:-48%;
+  width:34%;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(105deg,transparent 0%,rgba(205,139,116,.08) 24%,rgba(255,226,199,.72) 48%,rgba(255,249,235,.86) 54%,rgba(205,139,116,.12) 78%,transparent 100%);
+  filter:blur(2px);
+  transform:translateX(0) skewX(-18deg);
+  animation:specialBouquetSweep 5.8s ease-in-out infinite;
+}
+.product-card.is-special .product-label{
+  position:absolute;
+  z-index:3;
+}
+@keyframes specialBouquetSweep{
+  0%,12%,100%{opacity:0;transform:translateX(0) skewX(-18deg)}
+  18%{opacity:.95}
+  48%{opacity:0;transform:translateX(440%) skewX(-18deg)}
+}
+@media(prefers-reduced-motion:reduce){
+  .product-card.is-special .product-image::after{animation:none!important;display:none!important}
+}
