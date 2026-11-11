@@ -283,3 +283,8 @@ select option {
   .occasion-rail{grid-auto-columns:72%;gap:12px;padding-bottom:10px}
   .occasion-card strong{font-size:18px}
 }
+
+
+/* Storefront link inside the admin hamburger menu */
+.admin-tabs .admin-menu-storefront{display:block;width:100%;padding:12px 14px;border:1px solid var(--line);background:#fff;color:var(--burgundy);font:11px var(--sans);text-decoration:none;text-align:left}
+.admin-tabs .admin-menu-storefront:hover,.admin-tabs .admin-menu-storefront:focus{background:var(--ivory);outline:2px solid rgba(112,45,67,.12)}
