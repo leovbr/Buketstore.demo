@@ -596,3 +596,31 @@ select option {
   .overview-row>strong{font-size:11px}
   .overview-review p{font-size:11.5px}
 }
+
+
+/* Navbar alignment correction: brand at the far left, menu at the far right */
+.admin-navbar{
+  justify-content:space-between!important;
+}
+.admin-navbar-label{
+  order:0;
+  margin-right:auto;
+  align-items:flex-start;
+  text-align:left;
+}
+.admin-navbar>.admin-nav-wrap{
+  order:1;
+  margin-left:auto!important;
+}
+@media(max-width:560px){
+  .admin-navbar{
+    justify-content:space-between!important;
+  }
+  .admin-navbar-label{
+    align-items:flex-start;
+    text-align:left;
+  }
+  .admin-navbar>.admin-nav-wrap{
+    margin-left:auto!important;
+  }
+}
