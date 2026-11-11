@@ -10,7 +10,7 @@ const normalizedProducts=products.map(p=>({...p,category:String(p.category||"").
 if(normalizedProducts.some((p,i)=>p.category!==products[i].category)){products=normalizedProducts;write(K.products,products)}
 let active=document.body.dataset.adminPage||"homepage";const root=document.querySelector("#admin-content"),money=n=>"Rp "+Number(n||0).toLocaleString("id-ID"),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
-const adminBrandMark=document.querySelector(".admin-navbar-label");function updateAdminBrandMark(){if(adminBrandMark)adminBrandMark.innerHTML='<span class="admin-navbar-brand">'+esc(settings.brandName||"Maison Fleur")+'</span><span class="admin-navbar-caption">STORE MANAGEMENT</span>'}updateAdminBrandMark();
+const adminBrandMark=document.querySelector(".admin-navbar-brand");function updateAdminBrandMark(){if(adminBrandMark)adminBrandMark.textContent=settings.brandName||"Maison Fleur"}updateAdminBrandMark();
 let cropImage=null,cropObjectUrl="",cropOffsetX=0,cropOffsetY=0,cropBaseScale=1,cropZoom=1,cropDragging=false,cropPointer=null,cropDone=null;
 function ensureCropper(){
  let layer=document.querySelector("#mf-cropper");
