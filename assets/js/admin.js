@@ -34,7 +34,7 @@ function ensureCropper(){
  return layer
 }
 function panel(title,body){return '<section class="admin-panel"><h2>'+title+'</h2>'+body+'</section>'}
-function render(){document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===active));if(active==="overview" && false){
+function render(){document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===active));if(active==="overview"){
 const orderValue=orders.reduce((sum,o)=>sum+Number(o.subtotal||0),0);
 const completedOrders=orders.filter(o=>o.status==="Selesai").length;
 const lowStock=products.filter(p=>Number(p.stock||0)<=5);
