@@ -786,3 +786,31 @@ select option {
 .feedback-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .feedback-success{padding:14px 16px;background:#f5e5eb;color:var(--burgundy);font-size:13px}
 @media(max-width:560px){.feedback-form-row{grid-template-columns:1fr}}
+
+
+/* Public testimonials, customer submission and official store replies */
+.review-summary-panel{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;margin:0 auto 28px;padding:22px;background:var(--ivory);border:1px solid var(--line);text-align:center}
+.review-average{color:var(--plum);font:500 38px/1 Georgia,"Times New Roman",serif}
+.review-summary-stars{color:#c58a45;letter-spacing:.12em;font-size:18px}
+.review-summary-panel small{width:100%;color:var(--muted);font-size:11px}
+.public-review-form-panel{max-width:760px;margin:0 auto 42px;padding:clamp(22px,4vw,38px);background:#fffafd;border:1px solid var(--line)}
+.review-form-heading{margin-bottom:20px}
+.review-form-heading h2{margin:5px 0 8px;color:var(--plum);font:500 clamp(23px,3vw,30px)/1.2 var(--serif)}
+.review-form-heading>p:last-child{color:var(--muted);font-size:12px;line-height:1.7}
+.public-review-form-panel .feedback-form .button{justify-self:start;cursor:pointer}
+.public-review-list-section{margin-top:20px}
+.review-card{padding:22px;background:#fff;border:1px solid var(--line);min-width:0}
+.review-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.review-card .stars{color:#c58a45;letter-spacing:.12em}
+.review-product{color:var(--burgundy);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.review-card blockquote{margin:14px 0;color:var(--plum);font:400 14px/1.8 var(--sans);overflow-wrap:anywhere}
+.review-card>small{color:var(--muted);font-size:10px}
+.review-store-reply{margin-top:18px;padding:15px 17px;background:#fbf1f4;border-left:3px solid var(--rose)}
+.review-store-reply b{color:var(--burgundy);font-size:11px}
+.review-store-reply p{margin:7px 0 0;color:var(--plum);font-size:12px;line-height:1.75;overflow-wrap:anywhere}
+.review-admin-card{display:block}
+.review-admin-card label{display:block;margin:12px 0;color:var(--burgundy);font-size:12px;font-weight:700}
+.review-admin-card label select,.review-admin-card textarea{display:block;width:100%;margin-top:7px;padding:11px;border:1px solid var(--line);background:#fff;color:var(--plum);font:12px/1.5 var(--sans)}
+.review-admin-card textarea{resize:vertical}
+.review-admin-card .admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+@media(max-width:560px){.review-card{padding:17px}.review-card blockquote{font-size:13px}.review-admin-card .admin-actions .admin-button{flex:1 1 auto}}
