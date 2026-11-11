@@ -138,3 +138,33 @@ select option {
   #shop-products.store-product-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;align-items:start}
   #shop-products.store-product-grid>.product-card{width:100%;min-width:0}
 }
+
+
+/* Admin dashboard top navigation: brand label left, hamburger right */
+.admin-shell{padding-top:22px}
+.admin-top{display:block;margin:0 0 30px}
+.admin-navbar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:0 0 14px;border-bottom:1px solid var(--line)}
+.admin-navbar-label{margin:0;color:var(--burgundy);font-size:10px;letter-spacing:.24em;font-weight:700}
+.admin-nav-wrap{position:relative;margin:0;flex:0 0 auto}
+.admin-menu-toggle{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--line);background:#fff;color:var(--burgundy);cursor:pointer}
+.admin-menu-icon{display:grid;gap:5px;width:19px}
+.admin-menu-icon i{display:block;width:19px;height:1.5px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:first-child{transform:translateY(6.5px) rotate(45deg)}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:nth-child(2){opacity:0}
+.admin-menu-toggle[aria-expanded="true"] .admin-menu-icon i:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+.admin-tabs{top:calc(100% + 9px);right:0;left:auto;min-width:230px}
+.admin-heading{padding:30px 0 0}
+.admin-heading h1{margin:0 0 14px;font:500 clamp(38px,6vw,58px)/1.08 var(--serif);color:var(--plum)}
+.admin-heading .admin-note{max-width:620px;margin:0 0 22px;font-size:12px;line-height:1.9}
+.admin-storefront-link{display:inline-flex;align-items:center;min-height:42px}
+@media(max-width:560px){
+ .admin-shell{padding:14px 16px 40px}
+ .admin-top{margin-bottom:24px}
+ .admin-navbar{min-height:44px;padding-bottom:10px}
+ .admin-navbar-label{font-size:9px;letter-spacing:.2em}
+ .admin-menu-toggle{width:42px;height:42px}
+ .admin-tabs{right:0;left:auto;width:min(260px,calc(100vw - 32px));max-width:calc(100vw - 32px)}
+ .admin-heading{padding-top:25px}
+ .admin-heading h1{font-size:clamp(37px,10vw,48px);line-height:1.08}
+ .admin-heading .admin-note{font-size:11px;line-height:1.85}
+}
