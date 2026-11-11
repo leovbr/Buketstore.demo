@@ -43,7 +43,7 @@ function draw(){
 const actual=Array.isArray(reviews)?reviews.filter(r=>r.approved===true):[];
 const source=actual.length?actual:demoReviews;
 const visible=source.filter(r=>filter.value==="all"||Number(r.rating)===Number(filter.value));
-const avg=actual.length?(actual.reduce((sum,r)=>sum+Number(r.rating||0),0)/actual.length).toFixed(1):"5.0";
+const avg=actual.length?(actual.reduce((sum,r)=>sum+Number(r.rating||0),0)/actual.length).toFixed(1):"—";
 const total=actual.length;
 const summary=document.querySelector("#review-summary");
 if(summary)summary.innerHTML='<strong class="review-average">'+avg+'</strong><span class="review-summary-stars">★★★★★</span><small>'+total+' ulasan disetujui</small>';
