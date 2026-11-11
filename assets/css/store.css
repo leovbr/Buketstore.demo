@@ -730,3 +730,8 @@ select option {
 @media(prefers-reduced-motion:reduce){
   .product-card.is-special .product-image::after{animation:none!important;display:none!important}
 }
+
+/* The occasion rails are a single full-width grid item, not three category tiles. */
+#home-categories.has-occasion-rails{grid-template-columns:minmax(0,1fr);width:100%;}
+#home-categories.has-occasion-rails>.occasion-rails{grid-column:1/-1;width:100%;min-width:0;}
+#home-categories.has-occasion-rails .occasion-rail{width:100%;}
