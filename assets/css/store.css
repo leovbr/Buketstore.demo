@@ -197,3 +197,24 @@ select option {
   .admin-navbar>.admin-nav-wrap{width:42px!important;min-width:42px!important;flex-basis:42px!important}
   .admin-navbar .admin-menu-toggle{width:42px!important;min-width:42px!important;max-width:42px!important;height:42px!important}
 }
+
+
+/* Square image uploader and 1:1 crop editor */
+.admin-form input[type="file"]{width:100%;padding:12px;border:1px dashed var(--rose);background:#fffafd;color:var(--plum);font:12px var(--sans)}
+.admin-form input[type="file"]::file-selector-button{margin-right:12px;padding:9px 13px;border:1px solid var(--line);background:#f8e5ed;color:var(--burgundy);font:600 11px var(--sans)}
+#product-image-preview{width:150px!important;height:150px!important;aspect-ratio:1/1;object-fit:cover!important;background:#fce8ee}
+.mf-cropper{position:fixed;inset:0;z-index:100100;display:grid;place-items:center;padding:16px;background:rgba(39,20,30,.68);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+.mf-cropper[hidden]{display:none}
+.mf-cropper-panel{width:min(460px,100%);max-height:calc(100dvh - 32px);overflow:auto;padding:22px;background:#fff8fa;border:1px solid #f0d5df;box-shadow:0 24px 80px rgba(39,20,30,.3)}
+.mf-crop-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+.mf-crop-head .eyebrow{margin:0 0 6px;color:#a33f68;font-size:9px;letter-spacing:.2em}
+.mf-crop-head h2{margin:0 0 7px;color:#472638;font:500 27px/1.15 var(--serif,Georgia,serif)}
+.mf-crop-head .admin-note{margin:0;font-size:11px;line-height:1.6}
+.mf-crop-close{flex:0 0 36px;width:36px;height:36px;border:1px solid #f0d5df;background:transparent;color:#a33f68;font-size:24px;cursor:pointer}
+.mf-crop-stage{display:grid;place-items:center;margin:18px auto 14px;width:min(320px,100%);aspect-ratio:1/1;background:#fce8ee;overflow:hidden;touch-action:none;border:1px solid #f0d5df}
+.mf-crop-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+.mf-crop-stage canvas:active{cursor:grabbing}
+.mf-crop-zoom{display:flex;align-items:center;gap:12px;color:#472638;font:600 11px var(--sans)}
+.mf-crop-zoom input{flex:1;accent-color:#a33f68}
+.mf-crop-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:20px;flex-wrap:wrap}
+@media(max-width:480px){.mf-cropper-panel{padding:17px}.mf-crop-head h2{font-size:24px}.mf-crop-actions>*{flex:1}}
