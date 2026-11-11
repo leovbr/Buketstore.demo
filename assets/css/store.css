@@ -288,3 +288,43 @@ select option {
 /* Storefront link inside the admin hamburger menu */
 .admin-tabs .admin-menu-storefront{display:block;width:100%;padding:12px 14px;border:1px solid var(--line);background:#fff;color:var(--burgundy);font:11px var(--sans);text-decoration:none;text-align:left}
 .admin-tabs .admin-menu-storefront:hover,.admin-tabs .admin-menu-storefront:focus{background:var(--ivory);outline:2px solid rgba(112,45,67,.12)}
+
+
+/* Refined admin hamburger dropdown: compact, aligned, and scroll-safe */
+.admin-nav-wrap{position:relative!important}
+.admin-tabs{
+  position:absolute!important;
+  top:calc(100% + 8px)!important;
+  right:0!important;
+  left:auto!important;
+  width:300px!important;
+  min-width:0!important;
+  max-width:calc(100vw - 32px)!important;
+  max-height:min(68vh,560px)!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  padding:8px!important;
+  gap:4px!important;
+  border-radius:3px;
+  box-sizing:border-box!important;
+}
+.admin-tabs button,
+.admin-tabs .admin-menu-storefront{
+  display:flex!important;
+  align-items:center!important;
+  min-height:46px!important;
+  width:100%!important;
+  box-sizing:border-box!important;
+  padding:11px 13px!important;
+  font-size:12px!important;
+  line-height:1.35!important;
+  text-align:left!important;
+}
+.admin-tabs .admin-menu-storefront{margin-top:2px!important}
+@media(max-width:560px){
+  .admin-tabs{
+    width:min(300px,calc(100vw - 32px))!important;
+    max-width:calc(100vw - 32px)!important;
+    max-height:calc(100dvh - 250px)!important;
+  }
+}
