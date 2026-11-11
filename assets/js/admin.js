@@ -8,7 +8,7 @@ function migrateProductImages(){const map={"rose-blush":"assets/buket1.webp","ve
 migrateProductImages();
 const normalizedProducts=products.map(p=>({...p,category:String(p.category||"").trim()}));
 if(normalizedProducts.some((p,i)=>p.category!==products[i].category)){products=normalizedProducts;write(K.products,products)}
-let active="homepage";const root=document.querySelector("#admin-content"),money=n=>"Rp "+Number(n||0).toLocaleString("id-ID"),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let active=document.body.dataset.adminPage||"homepage";const root=document.querySelector("#admin-content"),money=n=>"Rp "+Number(n||0).toLocaleString("id-ID"),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
 let cropImage=null,cropObjectUrl="",cropOffsetX=0,cropOffsetY=0,cropBaseScale=1,cropZoom=1,cropDragging=false,cropPointer=null,cropDone=null;
 function ensureCropper(){
@@ -102,7 +102,7 @@ if(active==="reviews"){root.innerHTML=panel("Add customer testimonial",'<form id
 const menuToggle=document.querySelector(".admin-menu-toggle"),menu=document.querySelector("#admin-tabs");
 function closeMenu(){menu.classList.remove("is-open");menuToggle.setAttribute("aria-expanded","false")}
 menuToggle.onclick=()=>{const open=menuToggle.getAttribute("aria-expanded")!=="true";menu.classList.toggle("is-open",open);menuToggle.setAttribute("aria-expanded",String(open))};
-document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{active=b.dataset.tab;render();closeMenu()});
+document.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{closeMenu();window.location.href=b.dataset.href});
 document.addEventListener("click",e=>{if(!e.target.closest(".admin-nav-wrap"))closeMenu()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});
 render();
