@@ -8,8 +8,9 @@ function migrateProductImages(){const map={"rose-blush":"assets/buket1.webp","ve
 migrateProductImages();
 const normalizedProducts=products.map(p=>({...p,category:String(p.category||"").trim()}));
 if(normalizedProducts.some((p,i)=>p.category!==products[i].category)){products=normalizedProducts;write(K.products,products)}
-const adminBrandMark=document.querySelector(".admin-navbar-label");function updateAdminBrandMark(){if(adminBrandMark)adminBrandMark.innerHTML='<span class="admin-navbar-brand">'+esc(settings.brandName||"Maison Fleur")+'</span><span class="admin-navbar-caption">STORE MANAGEMENT</span>'}updateAdminBrandMark();let active=document.body.dataset.adminPage||"homepage";const root=document.querySelector("#admin-content"),money=n=>"Rp "+Number(n||0).toLocaleString("id-ID"),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let active=document.body.dataset.adminPage||"homepage";const root=document.querySelector("#admin-content"),money=n=>"Rp "+Number(n||0).toLocaleString("id-ID"),esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 
+const adminBrandMark=document.querySelector(".admin-navbar-label");function updateAdminBrandMark(){if(adminBrandMark)adminBrandMark.innerHTML='<span class="admin-navbar-brand">'+esc(settings.brandName||"Maison Fleur")+'</span><span class="admin-navbar-caption">STORE MANAGEMENT</span>'}updateAdminBrandMark();
 let cropImage=null,cropObjectUrl="",cropOffsetX=0,cropOffsetY=0,cropBaseScale=1,cropZoom=1,cropDragging=false,cropPointer=null,cropDone=null;
 function ensureCropper(){
  let layer=document.querySelector("#mf-cropper");
