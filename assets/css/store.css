@@ -328,3 +328,20 @@ select option {
     max-height:calc(100dvh - 250px)!important;
   }
 }
+
+
+/* Store overview dashboard summary */
+.admin-panel .overview-intro{margin:0 0 18px;max-width:620px}
+.admin-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 22px}
+.admin-stats>strong{display:flex;flex-direction:column;gap:7px;min-width:0;padding:18px;background:var(--paper);border:1px solid var(--line);color:var(--plum);font:500 28px/1.1 var(--serif)}
+.admin-stats>strong small{color:var(--muted);font:600 10px/1.4 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.admin-overview-brand{padding:18px 0 0;border-top:1px solid var(--line)}
+.admin-overview-brand .eyebrow{display:block;margin-bottom:8px;color:var(--muted);font-size:9px;letter-spacing:.18em;font-weight:700}
+.admin-overview-brand>strong{display:block;color:var(--burgundy);font:500 25px/1.2 var(--serif)}
+.admin-overview-brand .admin-note{max-width:650px;margin:9px 0 0}
+@media(max-width:560px){
+ .admin-stats{gap:8px;margin:15px 0 20px}
+ .admin-stats>strong{padding:13px 10px;font-size:23px}
+ .admin-stats>strong small{font-size:9px}
+ .admin-overview-brand{padding-top:15px}
+}
