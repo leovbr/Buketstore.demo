@@ -750,3 +750,29 @@ select option {
 @media(prefers-reduced-motion:reduce){
   .floating-cart{animation:none!important;will-change:auto}
 }
+
+/* Product photos feel gently alive on pointer hover and touch */
+.product-card .product-image{
+  overflow:hidden;
+  transform:scale(1);
+  filter:brightness(1);
+  transition:transform .42s cubic-bezier(.2,.7,.25,1),filter .42s ease,box-shadow .42s ease;
+  transform-origin:center;
+  -webkit-tap-highlight-color:transparent;
+}
+.product-card .product-image:hover,
+.product-card .product-image:focus-visible,
+.product-card .product-image:active{
+  transform:scale(1.035);
+  filter:brightness(.88) saturate(1.06);
+  box-shadow:0 10px 24px rgba(112,45,67,.12);
+}
+@media(hover:hover) and (pointer:fine){
+  .product-card .product-image:hover{transform:scale(1.045);filter:brightness(.9) saturate(1.08)}
+}
+@media(prefers-reduced-motion:reduce){
+  .product-card .product-image{transition:none!important}
+  .product-card .product-image:hover,
+  .product-card .product-image:focus-visible,
+  .product-card .product-image:active{transform:none;filter:none;box-shadow:none}
+}
