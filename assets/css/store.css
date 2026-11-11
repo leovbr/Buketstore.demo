@@ -345,3 +345,24 @@ select option {
  .admin-stats>strong small{font-size:9px}
  .admin-overview-brand{padding-top:15px}
 }
+
+
+/* Operational overview dashboard */
+.admin-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
+.overview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:22px}
+.overview-section{min-width:0;padding:16px;border:1px solid var(--line);background:var(--paper)}
+.overview-section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}
+.overview-section-head h3{margin:0;color:var(--plum);font:500 20px/1.2 var(--serif)}
+.overview-section-head .admin-button{flex:0 0 auto;padding:8px 10px;font-size:10px}
+.overview-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.overview-row>span{min-width:0}
+.overview-row b,.overview-row small{display:block}
+.overview-row b{color:var(--plum);font-size:12px}
+.overview-row small{margin-top:4px;color:var(--muted);font-size:10px;line-height:1.4}
+.overview-row>strong{flex:0 0 auto;color:var(--burgundy);font-size:11px}
+.overview-review{padding:11px 0;border-top:1px solid var(--line)}
+.overview-review b{color:var(--plum);font-size:12px}
+.overview-review span{margin-left:8px;color:var(--muted);font-size:10px}
+.overview-review p{margin:6px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+.overview-alert{margin:12px 0 0;padding:10px;background:#fff0f2;color:#963d5e;font-size:11px;line-height:1.5}
+@media(max-width:700px){.admin-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.overview-grid{grid-template-columns:1fr}.overview-section{padding:13px}.overview-section-head h3{font-size:18px}}
