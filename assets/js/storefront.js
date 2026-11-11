@@ -26,6 +26,7 @@ function renderHomeCategories(){
  const saved=read(key,defaults);
  const items=Array.from({length:10},(_,i)=>({...defaults[i],...(saved[i]||{})}));
  const card=(item,i)=>'<a class="occasion-card" href="shop.html?category='+encodeURIComponent(item.category||"")+'" aria-label="'+esc(item.title)+' — '+esc(item.category)+'"><img src="'+esc(item.image||"")+'" alt="'+esc(item.title)+'" loading="lazy"><span class="occasion-card-index">'+String(i+1).padStart(2,"0")+' / '+esc(String(item.category||"").toUpperCase())+'</span><strong>'+esc(item.title)+'</strong><i>Explore ↗</i></a>';
+ root.classList.add("has-occasion-rails");
  root.innerHTML='<div class="occasion-rails">'+[0,1].map(row=>'<div class="occasion-rail" aria-label="Bouquet occasions row '+(row+1)+'">'+items.slice(row*5,row*5+5).map((item,i)=>card(item,row*5+i)).join("")+'</div>').join("")+'</div>';
 }
 function renderHomeProducts(){const root=document.querySelector("#home-products");if(!root)return;const seen=new Set();const list=[...products].filter(p=>p&&p.id&&!seen.has(String(p.id))&&seen.add(String(p.id)));const special=list.find(p=>p.featured);if(special)list.splice(list.indexOf(special),1);if(special)list.unshift(special);root.innerHTML=list.length?list.map(p=>productCard(p)).join(""):'<div class="empty-state">Koleksi buket akan segera hadir.</div>';bindAdd()}
