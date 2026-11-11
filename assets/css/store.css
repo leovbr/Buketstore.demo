@@ -446,3 +446,153 @@ select option {
     line-height:1.65;
   }
 }
+
+
+/* Maison Fleur admin — refined typography and brand-led navigation */
+.admin-navbar{
+  justify-content:flex-end!important;
+  min-height:58px;
+  padding-bottom:13px;
+}
+.admin-navbar-label{
+  display:flex!important;
+  flex-direction:column;
+  align-items:flex-end;
+  justify-content:center;
+  gap:3px;
+  flex:0 1 auto!important;
+  text-align:right;
+  line-height:1.2;
+}
+.admin-navbar-brand{
+  display:block;
+  max-width:min(62vw,420px);
+  overflow:hidden;
+  color:var(--plum);
+  font:500 clamp(20px,3vw,27px)/1.1 Georgia,"Times New Roman",serif;
+  letter-spacing:.015em;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.admin-navbar-caption{
+  display:block;
+  color:var(--burgundy);
+  font:700 9px/1.3 system-ui,-apple-system,"Segoe UI",sans-serif;
+  letter-spacing:.2em;
+}
+.admin-navbar>.admin-nav-wrap{margin-left:14px!important}
+.admin-panel{
+  padding:28px;
+  border-color:#ead7de;
+}
+.admin-panel h2{
+  margin-bottom:22px;
+  font:500 clamp(25px,3.5vw,31px)/1.2 Georgia,"Times New Roman",serif;
+  color:var(--plum);
+}
+.admin-note{
+  font:400 13px/1.75 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-form{
+  gap:18px;
+}
+.admin-form label,
+.occasion-admin-card label{
+  color:var(--burgundy);
+  font:650 12px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-form input:not([type="checkbox"]):not([type="file"]),
+.admin-form textarea,
+.admin-form select,
+.occasion-admin-card input:not([type="file"]),
+.occasion-admin-card select{
+  min-height:46px;
+  padding:12px 13px;
+  font:400 13px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-form textarea{min-height:100px}
+.admin-button{
+  min-height:44px;
+  padding:12px 17px;
+  font:600 12px/1.35 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-list-row{
+  padding:15px;
+  font:400 13px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-list-row b{font-size:14px}
+.admin-order{
+  padding:18px;
+  font:400 13px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+.admin-order select{font-size:13px}
+.occasion-admin-grid{gap:16px}
+.occasion-admin-card{
+  gap:12px;
+  padding:15px;
+}
+.occasion-admin-head{
+  font-size:12px;
+  letter-spacing:.09em;
+}
+.occasion-admin-preview{
+  max-width:100%;
+}
+.occasion-admin-card input:not([type="file"]),
+.occasion-admin-card select{
+  margin-top:7px;
+}
+.occasion-upload{
+  min-height:44px;
+  font-size:12px;
+}
+.occasion-admin-save{margin-top:10px}
+.product-preview-card h3{font-size:22px}
+.product-preview-card small{font-size:10px}
+.product-preview-card strong{font-size:14px}
+.product-preview-card p{font-size:12px;line-height:1.65}
+.admin-image-choice{font-size:12px;padding:9px}
+.admin-image-choice img{height:155px}
+.admin-stats>strong{font-size:30px}
+.admin-stats>strong small{font-size:11px}
+.overview-section-head h3{font-size:21px}
+.overview-row b,.overview-review b{font-size:13px}
+.overview-row small,.overview-review span{font-size:11px}
+.overview-row>strong{font-size:12px}
+.overview-review p{font-size:12px;line-height:1.65}
+@media(max-width:700px){
+  .admin-panel{padding:22px}
+  .admin-panel h2{font-size:27px}
+  .admin-note{font-size:12.5px}
+  .admin-form{gap:16px}
+  .occasion-admin-grid{gap:13px}
+  .occasion-admin-card{padding:14px}
+  .admin-stats>strong{font-size:27px}
+}
+@media(max-width:560px){
+  .admin-navbar{min-height:50px;padding-bottom:10px}
+  .admin-navbar-brand{font-size:21px;max-width:62vw}
+  .admin-navbar-caption{font-size:8px;letter-spacing:.17em}
+  .admin-navbar>.admin-nav-wrap{margin-left:9px!important}
+  .admin-panel{padding:19px 16px}
+  .admin-panel h2{font-size:25px;line-height:1.22;margin-bottom:18px}
+  .admin-note{font-size:12px;line-height:1.7}
+  .admin-form label,.occasion-admin-card label{font-size:12px}
+  .admin-form input:not([type="checkbox"]):not([type="file"]),
+  .admin-form textarea,.admin-form select,
+  .occasion-admin-card input:not([type="file"]),
+  .occasion-admin-card select{font-size:13px;min-height:45px}
+  .admin-button{font-size:12px;min-height:44px}
+  .occasion-admin-card{gap:11px}
+  .occasion-admin-head{font-size:12px}
+  .occasion-admin-preview{width:min(100%,230px);justify-self:center}
+  .occasion-upload{font-size:12px}
+  .admin-list-row{font-size:12px}
+  .admin-list-row b{font-size:13px}
+  .admin-order{font-size:12px}
+  .overview-section-head h3{font-size:19px}
+  .overview-row b,.overview-review b{font-size:12px}
+  .overview-row small,.overview-review span{font-size:10.5px}
+  .overview-row>strong{font-size:11px}
+  .overview-review p{font-size:11.5px}
+}
