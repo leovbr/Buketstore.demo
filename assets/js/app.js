@@ -1,4 +1,67 @@
 (() => {
+
+  // Maison Fleur custom notifications and confirmation dialogs.
+  (() => {
+    let toastTimer;
+    function ensureLayer() {
+      let layer = document.querySelector(".mf-dialog-layer");
+      if (layer) return layer;
+      layer = document.createElement("div");
+      layer.className = "mf-dialog-layer";
+      layer.innerHTML = '<section class="mf-dialog" role="dialog" aria-modal="true" aria-labelledby="mf-dialog-title"><div class="mf-dialog-mark" aria-hidden="true">✿</div><h2 id="mf-dialog-title">Maison Fleur</h2><p class="mf-dialog-message"></p><div class="mf-dialog-actions"><button type="button" class="mf-dialog-cancel">Batal</button><button type="button" class="mf-dialog-ok">Oke</button></div></section>';
+      document.body.append(layer);
+      return layer;
+    }
+    function showDialog(message, confirmMode) {
+      const layer = ensureLayer(), box = layer.querySelector(".mf-dialog");
+      layer.querySelector(".mf-dialog-message").textContent = String(message);
+      const cancel = layer.querySelector(".mf-dialog-cancel"), ok = layer.querySelector(".mf-dialog-ok");
+      cancel.hidden = !confirmMode;
+      ok.textContent = confirmMode ? "Ya, lanjutkan" : "Mengerti";
+      layer.hidden = false;
+      box.classList.toggle("is-confirm", !!confirmMode);
+      return new Promise(resolve => {
+        const finish = value => {
+          layer.hidden = true;
+          ok.removeEventListener("click", onOk);
+          cancel.removeEventListener("click", onCancel);
+          layer.removeEventListener("click", onBackdrop);
+          document.removeEventListener("keydown", onKey);
+          resolve(value);
+        };
+        const onOk = () => finish(true);
+        const onCancel = () => finish(false);
+        const onBackdrop = event => { if (event.target === layer) finish(false); };
+        const onKey = event => { if (event.key === "Escape") finish(false); };
+        ok.addEventListener("click", onOk);
+        cancel.addEventListener("click", onCancel);
+        layer.addEventListener("click", onBackdrop);
+        document.addEventListener("keydown", onKey);
+        ok.focus();
+      });
+    }
+    function toast(message) {
+      let node = document.querySelector(".mf-toast");
+      if (!node) {
+        node = document.createElement("div");
+        node.className = "mf-toast";
+        node.setAttribute("role", "status");
+        node.setAttribute("aria-live", "polite");
+        document.body.append(node);
+      }
+      node.textContent = String(message);
+      node.classList.add("is-visible");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => node.classList.remove("is-visible"), 2800);
+    }
+    window.MFDialog = { alert: message => showDialog(message, false), confirm: message => showDialog(message, true), toast };
+    window.alert = message => {
+      const text = String(message);
+      if (/ditambahkan|berhasil disimpan|tersimpan/i.test(text)) toast(text);
+      else showDialog(text, false);
+    };
+  })();
+
   const defaults = { brandName: "Maison Fleur", tagline: "FLOWERS & LITTLE MOMENTS", whatsapp: "6285823538473", email: "hello@yourflorist.com" };
   let settings = { ...defaults };
   try { settings = { ...defaults, ...JSON.parse(localStorage.getItem("buketstore_brand_settings") || "{}") }; }
