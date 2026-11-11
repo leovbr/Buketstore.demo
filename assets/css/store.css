@@ -615,21 +615,72 @@ select option {
 @media(max-width:560px){.admin-navbar{justify-content:space-between!important}.admin-navbar-identity{align-items:flex-start!important;max-width:calc(100% - 56px)}.admin-navbar-identity .admin-navbar-brand{font-size:21px;max-width:100%}.admin-navbar-identity .admin-navbar-caption{font-size:8px;letter-spacing:.17em}.admin-navbar>.admin-nav-wrap{margin-left:auto!important}}
 
 
-/* Maison Fleur brand marquee: reveal left-to-right, pause, then hide right-to-left */
+/* Maison Fleur signature: 1.2s reveal, 5.5s full pause, 1s hide */
 .admin-navbar-identity .admin-navbar-brand{
   display:inline-block!important;
+  position:relative;
   width:max-content;
   max-width:min(68vw,460px);
   overflow:hidden;
   clip-path:inset(0 100% 0 0);
-  animation:maisonBrandReveal 5.2s ease-in-out infinite;
-  will-change:clip-path;
+  animation:maisonBrandReveal 7.7s ease-in-out infinite,maisonBrandGlow 7.7s ease-in-out infinite;
+  will-change:clip-path,text-shadow;
+}
+.admin-navbar-identity .admin-navbar-brand::before{
+  content:"";
+  position:absolute;
+  z-index:1;
+  top:-12%;
+  bottom:-12%;
+  left:0;
+  width:34px;
+  pointer-events:none;
+  opacity:0;
+  background:linear-gradient(100deg,transparent,rgba(255,220,190,.9),rgba(255,245,225,.72),transparent);
+  filter:blur(2px);
+  transform:translateX(-48px) skewX(-18deg);
+  animation:maisonRoseSweep 7.7s ease-in-out infinite;
+}
+.admin-navbar-identity .admin-navbar-brand::after{
+  content:"✿";
+  position:absolute;
+  z-index:2;
+  top:-9px;
+  left:0;
+  color:#d99aa8;
+  font:10px/1 Georgia,serif;
+  opacity:0;
+  pointer-events:none;
+  text-shadow:0 1px 5px rgba(217,154,168,.35);
+  animation:maisonPetalDrift 7.7s ease-in-out infinite;
 }
 @keyframes maisonBrandReveal{
   0%,100%{clip-path:inset(0 100% 0 0)}
-  23%,70%{clip-path:inset(0 0 0 0)}
-  90%{clip-path:inset(0 100% 0 0)}
+  15.58%,87.01%{clip-path:inset(0 0 0 0)}
+  100%{clip-path:inset(0 100% 0 0)}
+}
+@keyframes maisonBrandGlow{
+  0%,15.58%,87.01%,100%{text-shadow:none}
+  22%,78%{text-shadow:0 0 7px rgba(221,157,174,.34),0 0 15px rgba(221,157,174,.18)}
+}
+@keyframes maisonRoseSweep{
+  0%,22%,100%{opacity:0;transform:translateX(-48px) skewX(-18deg)}
+  25%{opacity:.9}
+  39%{opacity:0;transform:translateX(min(68vw,460px)) skewX(-18deg)}
+}
+@keyframes maisonPetalDrift{
+  0%,47%,68%,100%{opacity:0;transform:translate(-5px,4px) rotate(-25deg)}
+  51%{opacity:.85}
+  65%{opacity:0;transform:translate(min(62vw,420px),-8px) rotate(145deg)}
 }
 @media(prefers-reduced-motion:reduce){
-  .admin-navbar-identity .admin-navbar-brand{animation:none;clip-path:none;will-change:auto}
+  .admin-navbar-identity .admin-navbar-brand,
+  .admin-navbar-identity .admin-navbar-brand::before,
+  .admin-navbar-identity .admin-navbar-brand::after{
+    animation:none;
+    clip-path:none;
+    will-change:auto;
+  }
+  .admin-navbar-identity .admin-navbar-brand::before,
+  .admin-navbar-identity .admin-navbar-brand::after{display:none}
 }
