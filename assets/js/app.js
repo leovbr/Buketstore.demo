@@ -296,4 +296,20 @@
     applyLanguage(currentLang);
   })();
 
+
+  // Sync the floating cart badge after the page parser has created its markup.
+  function syncFloatingCartCount() {
+    let count = 0;
+    try {
+      const items = JSON.parse(localStorage.getItem("buketstore_cart") || "[]");
+      if (Array.isArray(items)) count = items.reduce((sum, item) => sum + (Number(item.quantity) || 0), 0);
+    } catch (error) { console.warn("Cart badge could not be synchronized.", error); }
+    document.querySelectorAll("[data-cart-count]").forEach(node => { node.textContent = String(count); });
+  }
+  document.addEventListener("DOMContentLoaded", syncFloatingCartCount);
+  window.addEventListener("pageshow", syncFloatingCartCount);
+  window.addEventListener("storage", event => {
+    if (event.key === "buketstore_cart") syncFloatingCartCount();
+  });
+
 })();
