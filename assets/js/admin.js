@@ -108,7 +108,7 @@ root.querySelectorAll("[data-review-status]").forEach(s=>s.onchange=()=>{const r
 root.querySelectorAll("[data-review-reply-save]").forEach(b=>b.onclick=()=>{const r=reviews.find(x=>x.id===b.dataset.reviewReplySave);const field=root.querySelector('[data-review-reply="'+b.dataset.reviewReplySave+'"]');if(r&&field){r.reply=field.value.trim();write(K.reviews,reviews);b.textContent="Tersimpan ✓"}});
 root.querySelectorAll("[data-approve]").forEach(b=>b.onclick=()=>{const r=reviews.find(x=>x.id===b.dataset.approve);if(r){r.approved=!r.approved;write(K.reviews,reviews);render()}});
 root.querySelectorAll("[data-review-delete]").forEach(b=>b.onclick=()=>{if(confirm("Hapus ulasan ini?")){reviews=reviews.filter(r=>r.id!==b.dataset.reviewDelete);write(K.reviews,reviews);render()}});
-}
+}}
 const menuToggle=document.querySelector(".admin-menu-toggle"),menu=document.querySelector("#admin-tabs");
 function closeMenu(){menu.classList.remove("is-open");menuToggle.setAttribute("aria-expanded","false")}
 menuToggle.onclick=()=>{const open=menuToggle.getAttribute("aria-expanded")!=="true";menu.classList.toggle("is-open",open);menuToggle.setAttribute("aria-expanded",String(open))};
