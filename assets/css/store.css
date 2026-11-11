@@ -776,3 +776,13 @@ select option {
   .product-card .product-image:focus-visible,
   .product-card .product-image:active{transform:none;filter:none;box-shadow:none}
 }
+
+/* Customer feedback — Maison Fleur demo */
+.feedback-panel{max-width:760px;margin:0 auto 45px;padding:clamp(22px,4vw,42px);background:var(--ivory);border:1px solid var(--line)}
+.feedback-form{display:grid;gap:18px}
+.feedback-form label{display:flex;flex-direction:column;gap:8px;font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--burgundy)}
+.feedback-form input,.feedback-form select,.feedback-form textarea{width:100%;padding:13px 14px;border:1px solid var(--line);background:#fff;color:var(--plum);font:13px var(--sans);border-radius:2px;outline-color:var(--rose)}
+.feedback-form textarea{resize:vertical;line-height:1.7}
+.feedback-form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.feedback-success{padding:14px 16px;background:#f5e5eb;color:var(--burgundy);font-size:13px}
+@media(max-width:560px){.feedback-form-row{grid-template-columns:1fr}}
