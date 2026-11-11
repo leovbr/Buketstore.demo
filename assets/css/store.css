@@ -232,3 +232,24 @@ select option {
 .homepage-photo-save{margin-top:6px}
 @media(max-width:800px){.homepage-photo-form{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.homepage-photo-form{grid-template-columns:1fr}.homepage-photo-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:12px;align-items:start}.homepage-photo-top{grid-column:1/-1}.homepage-photo-preview{grid-column:1/-1;width:min(100%,260px);justify-self:center}.homepage-photo-name,.homepage-photo-library{grid-column:1/-1}.homepage-photo-edit{grid-column:1/-1}.homepage-photo-remove{width:30px;height:30px}}
+
+
+/* Homepage — two independently swipeable bouquet rails */
+.occasion-rails{display:grid;gap:22px;width:100%;min-width:0}
+.occasion-rail{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(170px,21vw,245px);gap:16px;overflow-x:auto;overflow-y:hidden;padding:2px 2px 14px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--rose) transparent;-webkit-overflow-scrolling:touch}
+.occasion-card{display:flex;flex-direction:column;min-width:0;gap:7px;color:var(--plum);scroll-snap-align:start}
+.occasion-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--ivory);border:1px solid var(--line)}
+.occasion-card-index{margin-top:5px;font-size:8px;letter-spacing:.16em;color:var(--burgundy)}
+.occasion-card strong{font:500 21px/1.2 var(--serif);overflow-wrap:anywhere}
+.occasion-card i{font-style:normal;font-size:9px;color:var(--burgundy)}
+.occasion-card:hover img{transform:translateY(-2px);transition:transform .2s ease}
+.occasion-admin-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.occasion-admin-card{display:flex;flex-direction:column;gap:10px;min-width:0;padding:12px;border:1px solid var(--line);background:#fffafd}
+.occasion-admin-head{display:flex;justify-content:space-between;align-items:center;color:var(--burgundy);font-size:10px;letter-spacing:.1em}
+.occasion-admin-preview{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--ivory);border:1px solid var(--line)}
+.occasion-admin-card label{display:block;color:var(--burgundy);font:700 10px var(--sans)}
+.occasion-admin-card input:not([type=file]),.occasion-admin-card select{display:block;width:100%;min-width:0;margin-top:5px;padding:9px;border:1px solid var(--line);background:#fff;color:var(--plum);font:11px var(--sans)}
+.occasion-upload{width:100%;padding:10px 7px}
+.occasion-admin-save{margin-top:8px}
+@media(max-width:800px){.occasion-admin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.occasion-rail{grid-auto-columns:clamp(165px,32vw,220px)}}
+@media(max-width:560px){.occasion-rails{gap:15px}.occasion-rail{grid-auto-columns:166px;gap:12px;padding-bottom:11px}.occasion-card strong{font-size:18px}.occasion-admin-grid{grid-template-columns:1fr}.occasion-admin-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:start}.occasion-admin-head,.occasion-admin-preview,.occasion-admin-card label,.occasion-upload{grid-column:1/-1}.occasion-admin-preview{width:min(100%,260px);justify-self:center}}
