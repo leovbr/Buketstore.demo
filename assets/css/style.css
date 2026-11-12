@@ -101,3 +101,41 @@ body>*{position:relative;z-index:1}
 @keyframes mfDialogIn{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(max-width:560px){.mf-toast{bottom:22px;font-size:11px;padding:12px 16px}.mf-dialog{padding:26px 20px 21px}}
 @media(prefers-reduced-motion:reduce){.mf-toast,.mf-dialog{transition:none;animation:none}}
+
+
+/* Default storefront theme — Clean White Luxury */
+:root{
+  --ivory:#F8F7F5;
+  --paper:#FFFFFF;
+  --blush:#E8E5DF;
+  --rose:#B89A7A;
+  --burgundy:#2D2B28;
+  --plum:#252421;
+  --muted:#77736D;
+  --line:#E9E6E0;
+}
+body{background:#FFFFFF;color:#252421}
+.announcement{background:#2D2B28;color:#FFFFFF}
+.site-header{background:rgba(255,255,255,.97);border-bottom-color:#E9E6E0}
+.main-nav a:hover,.main-nav a.active{color:#9A7B5D}
+.cart-count,.floating-cart-count{background:#E8E5DF;color:#2D2B28}
+.floating-cart{background:#2D2B28;box-shadow:0 8px 24px rgba(37,36,33,.16)}
+.hero,.featured-section,.testimonial-placeholder{background:#F8F7F5}
+.hero h1 em,.eyebrow,.hero-note,.text-link,.product-meta>strong,.product-meta button{color:#9A7B5D}
+.eyebrow span{background:#B89A7A}
+.button-dark,.hero-stamp{background:#2D2B28;color:#FFFFFF}
+.button-dark:hover{background:#4A4640}
+.text-link{border-bottom-color:#D8CFC2}
+.product-label{background:#FFFFFF;color:#756047;border:1px solid #E9E6E0}
+.quote-section{background:#F1EFEA}
+.quote-mark{color:rgba(90,78,62,.22)}
+.button-outline{border-color:#9A7B5D;color:#756047}
+.button-outline:hover{background:#2D2B28;color:#FFFFFF}
+.stars{color:#9A7B5D}
+.site-footer{background:#252421;color:#F8F7F5}
+select,.shop-filters select,.checkout-fields select,.testimonial-toolbar select,.admin-form select,.admin-order select{
+ border-color:#E4E0D9;background-color:#FFFFFF;color:#35322D;
+}
+select:hover,.shop-filters select:hover,.checkout-fields select:hover,.testimonial-toolbar select:hover,.admin-form select:hover,.admin-order select:hover{border-color:#B89A7A;background-color:#FFFFFF}
+select:focus,.shop-filters select:focus,.checkout-fields select:focus,.testimonial-toolbar select:focus,.admin-form select:focus,.admin-order select:focus{border-color:#9A7B5D;box-shadow:0 0 0 3px rgba(184,154,122,.16)}
+select option{background:#FFFFFF;color:#35322D}
