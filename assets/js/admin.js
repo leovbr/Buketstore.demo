@@ -106,14 +106,14 @@ const themePresets={white:{background:"#FFFFFF",accent:"#B89A7A",text:"#252421",
 const theme=settings.theme||{preset:"white",...themePresets.white};
 const themeFields={background:root.querySelector("#theme-bg"),accent:root.querySelector("#theme-accent"),text:root.querySelector("#theme-text"),button:root.querySelector("#theme-button")};
 const themePreset=root.querySelector("#store-theme-preset"),themePreview=root.querySelector("#theme-live-preview");
-const validThemeHex=v=>/^#[0-9a-fA-F]{6}$/.test(String(v||""));
-const readThemeFields=()=>Object.fromEntries(Object.entries(themeFields).map(([k,n])=>[k,n.value.toUpperCase()]));
+const normalizeThemeColor=(value,fallback)=>{let v=String(value||"").trim().replace(/^#/,"");if(/^[0-9a-fA-F]{3}$/.test(v))v=v.split("").map(ch=>ch+ch).join("");return /^[0-9a-fA-F]{6}$/.test(v)?"#"+v.toUpperCase():fallback};
+const readThemeFields=()=>Object.fromEntries(Object.entries(themeFields).map(([k,n])=>[k,normalizeThemeColor(n.value,(settings.theme&&settings.theme[k])||themePresets.white[k])]));
 const paintThemePreview=()=>{const t=readThemeFields();themePreview.style.background=t.background;themePreview.style.color=t.text;themePreview.querySelector(".theme-preview-button").style.background=t.button;themePreview.querySelector(".theme-preview-button").style.color=t.background;themePreview.querySelector("em").style.color=t.accent};
 const setThemeFields=t=>{Object.keys(themeFields).forEach(k=>themeFields[k].value=t[k]||themePresets.white[k]);paintThemePreview()};
 themePreset.value=theme.preset||"white";setThemeFields({...themePresets.white,...theme});
 themePreset.onchange=()=>{if(themePreset.value!=="custom")setThemeFields(themePresets[themePreset.value]);else paintThemePreview()};
 Object.values(themeFields).forEach(n=>n.oninput=()=>{themePreset.value="custom";paintThemePreview()});
-root.querySelector("#save-store-theme").onclick=()=>{const t=readThemeFields();if(!Object.values(t).every(validThemeHex)){alert("Semua warna harus menggunakan format HEX, contoh #FFFFFF.");return}settings.theme={preset:themePreset.value,...t};write(K.settings,settings);alert("Tema toko berhasil disimpan di browser admin ini. Muat ulang storefront untuk melihat hasilnya.")};
+root.querySelector("#save-store-theme").onclick=()=>{const t=readThemeFields();setThemeFields(t);settings.theme={preset:themePreset.value,...t};write(K.settings,settings);alert("Tema toko berhasil disimpan di browser admin ini. Muat ulang storefront untuk melihat hasilnya.")};
 root.querySelector("#reset-store-theme").onclick=()=>{themePreset.value="white";setThemeFields(themePresets.white)};
 const form=root.querySelector("#appearance-form"),color=form.elements.color,preview=root.querySelector("#petal-live-preview"),picker=root.querySelector("#petal-picker"),hex=root.querySelector("#petal-picker-hex"),hexPreview=root.querySelector("#petal-hex-preview"),chip=root.querySelector("#petal-color-chip");
 form.elements.density.value=petals.density||"normal";form.elements.speed.value=petals.speed||"normal";form.elements.size.value=petals.size||"normal";
