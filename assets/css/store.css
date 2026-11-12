@@ -884,3 +884,36 @@ select option {
 .theme-preview-button{display:inline-flex;margin-top:4px;padding:10px 13px;border-radius:4px;font:700 8px var(--sans);letter-spacing:.1em}
 .appearance-divider{height:1px;margin:28px 0;background:#E9E6E0}
 @media(max-width:520px){.theme-customizer{padding:18px}.theme-color-grid{gap:9px}.theme-color-grid input{font-size:11px}.theme-preview-content strong{font-size:23px}}
+
+/* Branded delivery date picker — follows active store theme */
+.mf-date-picker-wrap{position:relative;width:100%}
+.mf-date-picker-wrap input{cursor:pointer!important;padding-right:46px!important;background-image:none!important}
+.mf-date-picker-wrap:after{content:"▦";position:absolute;right:16px;top:50%;transform:translateY(-50%);color:var(--burgundy,#B89A7A);font-size:19px;pointer-events:none}
+.mf-date-overlay{position:fixed;inset:0;z-index:12000;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(28,25,26,.48);backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
+.mf-date-overlay.is-open{opacity:1;visibility:visible}
+.mf-date-dialog{width:min(100%,430px);padding:25px;border:1px solid var(--line,#EAE6DF);border-radius:18px;background:var(--paper,#fff);color:var(--plum,#252421);box-shadow:0 24px 80px rgba(30,27,23,.22);transform:translateY(12px) scale(.98);transition:transform .2s ease}
+.mf-date-overlay.is-open .mf-date-dialog{transform:translateY(0) scale(1)}
+.mf-date-head{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}
+.mf-date-head small{font:700 9px var(--sans);letter-spacing:.18em;color:var(--burgundy,#B89A7A)}
+.mf-date-head h2{margin:7px 0 4px;font:500 27px/1.2 var(--serif);color:var(--plum,#252421)}
+.mf-date-head p{margin:0;color:var(--muted,#77736D);font:12px var(--sans)}
+.mf-date-close{width:34px;height:34px;border:1px solid var(--line,#EAE6DF);border-radius:50%;background:transparent;color:var(--plum,#252421);font:22px/1 var(--sans);cursor:pointer}
+.mf-date-month{display:grid;grid-template-columns:42px 1fr 42px;align-items:center;gap:8px;margin:24px 0 15px}
+.mf-date-month strong{text-align:center;text-transform:capitalize;font:600 13px var(--sans);color:var(--plum,#252421)}
+.mf-date-month button{height:38px;border:1px solid var(--line,#EAE6DF);border-radius:9px;background:transparent;color:var(--burgundy,#B89A7A);font:25px/1 var(--sans);cursor:pointer}
+.mf-date-week,.mf-date-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;text-align:center}
+.mf-date-week{margin-bottom:8px}
+.mf-date-week span{padding:7px 0;color:var(--muted,#77736D);font:700 10px var(--sans);text-transform:uppercase}
+.mf-date-day,.mf-date-empty{width:100%;aspect-ratio:1;min-width:0}
+.mf-date-day{border:1px solid transparent;border-radius:50%;background:transparent;color:var(--plum,#252421);font:500 12px var(--sans);cursor:pointer}
+.mf-date-day:hover:not(:disabled){border-color:var(--burgundy,#B89A7A);background:var(--blush,#F8F1F2)}
+.mf-date-day:disabled{color:var(--muted,#77736D);opacity:.3;cursor:not-allowed}
+.mf-date-day.is-today{border-color:var(--burgundy,#B89A7A)}
+.mf-date-day.is-selected{background:var(--burgundy,#B89A7A);color:#fff;border-color:var(--burgundy,#B89A7A)}
+.mf-date-dialog footer{display:flex;justify-content:flex-end;gap:10px;margin-top:22px;padding-top:17px;border-top:1px solid var(--line,#EAE6DF)}
+.mf-date-dialog footer button{min-width:100px;min-height:42px;padding:9px 15px;border:1px solid var(--line,#EAE6DF);border-radius:8px;background:transparent;color:var(--plum,#252421);font:600 11px var(--sans);cursor:pointer}
+.mf-date-dialog footer .mf-date-confirm{border-color:var(--burgundy,#B89A7A);background:var(--burgundy,#B89A7A);color:#fff}
+.mf-date-dialog footer .mf-date-confirm:disabled{opacity:.4;cursor:not-allowed}
+body.mf-date-open{overflow:hidden}
+@media(max-width:420px){.mf-date-dialog{padding:19px;border-radius:16px}.mf-date-head h2{font-size:24px}.mf-date-week,.mf-date-grid{gap:3px}.mf-date-day{font-size:11px}.mf-date-dialog footer button{min-width:88px}}
+@media(prefers-reduced-motion:reduce){.mf-date-overlay,.mf-date-dialog{transition:none}}
