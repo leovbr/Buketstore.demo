@@ -117,7 +117,7 @@ root.querySelector("#petal-picker-apply").onclick=()=>{if(!validHex(hex.value)){
 color.oninput=()=>{if(validHex(color.value)){color.value=color.value.toUpperCase();paint()}};
 form.oninput=paint;paint();
 form.onsubmit=e=>{e.preventDefault();if(!validHex(color.value)){alert("Masukkan kode HEX yang valid, contoh #E8A0B5.");color.focus();return}settings.petals={enabled:form.elements.enabled.checked,color:safeColor(color.value),density:form.elements.density.value,speed:form.elements.speed.value,size:form.elements.size.value};write(K.settings,settings);alert("Pengaturan falling petals berhasil disimpan di browser ini. Muat ulang halaman toko untuk melihat perubahan.")};
-root.querySelector("#petal-reset").onclick=()=>{form.reset();form.elements.enabled.checked=true;color.value="#E8A0AE";form.elements.density.value="normal";form.elements.speed.value="normal";form.elements.size.value="normal";paint()};
+root.querySelector("#petal-reset").onclick=()=>{form.reset();form.elements.enabled.checked=true;color.value="#E88EAE";form.elements.density.value="normal";form.elements.speed.value="normal";form.elements.size.value="normal";paint()};
 picker.addEventListener("click",e=>{if(e.target===picker)closePicker()});
 }
 
