@@ -865,3 +865,22 @@ select option {
 .petal-picker-dialog footer .admin-button{min-width:96px;min-height:42px;border-radius:8px}
 @media(max-width:420px){.petal-picker-dialog{padding:20px;border-radius:18px}.petal-picker-dialog h2{font-size:24px}.petal-palette-grid{gap:7px}.petal-swatch small{font-size:9px}.petal-hex-row{grid-template-columns:1fr auto}.petal-hex-row label{grid-column:1/-1}.petal-hex-preview{display:none}}
 @media(prefers-reduced-motion:reduce){.petal-picker-backdrop,.petal-picker-dialog{transition:none}}
+
+/* Store theme customizer */
+.theme-customizer{margin:22px 0 30px;padding:24px;border:1px solid #E9E6E0;border-radius:14px;background:#fff;color:#252421}
+.theme-customizer-heading{margin-bottom:18px}.theme-kicker{font:700 9px var(--sans);letter-spacing:.18em;color:#9A7B5D}
+.theme-customizer h2{margin:6px 0;font:500 27px var(--serif);color:#252421}.theme-customizer-heading p{margin:0;color:#77736D;font:12px/1.6 var(--sans)}
+.theme-customizer>label{display:block;margin-bottom:15px;font:600 11px var(--sans);color:#514C45}
+.theme-customizer select{display:block;width:100%;margin-top:7px;min-height:44px;padding:10px 12px;border:1px solid #E4E0D9;border-radius:8px;background:#fff;color:#252421}
+.theme-color-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.theme-color-grid label{display:flex;flex-direction:column;gap:7px;font:600 10px var(--sans);color:#77736D}
+.theme-color-grid input{width:100%;min-height:42px;padding:10px 12px;border:1px solid #E4E0D9;border-radius:8px;background:#fff;color:#252421;font:600 12px var(--sans);text-transform:uppercase}
+.theme-live-preview{margin:18px 0;padding:18px;border:1px solid #E9E6E0;border-radius:10px;background:#fff;color:#252421;min-height:180px}
+.theme-preview-top{display:flex;align-items:center;gap:8px;padding-bottom:12px;border-bottom:1px solid rgba(120,110,95,.2);font:600 11px var(--serif);letter-spacing:.08em}
+.theme-preview-content{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:18px 4px 4px}
+.theme-preview-content small{font:700 8px var(--sans);letter-spacing:.16em;opacity:.65}
+.theme-preview-content strong{font:500 26px/1.1 var(--serif)}
+.theme-preview-content em{font-weight:400}
+.theme-preview-button{display:inline-flex;margin-top:4px;padding:10px 13px;border-radius:4px;font:700 8px var(--sans);letter-spacing:.1em}
+.appearance-divider{height:1px;margin:28px 0;background:#E9E6E0}
+@media(max-width:520px){.theme-customizer{padding:18px}.theme-color-grid{gap:9px}.theme-color-grid input{font-size:11px}.theme-preview-content strong{font-size:23px}}
